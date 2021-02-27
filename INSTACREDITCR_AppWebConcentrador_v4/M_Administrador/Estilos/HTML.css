@@ -1,0 +1,20 @@
+﻿
+body {
+    height: 100% !important;
+    font-family: "Google Sans",Roboto,Arial,sans-serif;
+    color: #1d1d1d;
+    background-color: #E0E3FF;
+}
+
+.Titulos {
+    text-align: center;
+    font-size: xx-large;
+    font-weight: 700;
+    color: #2e2e2e;
+    margin-bottom:.8em;
+}
+
+.fondo {
+    background-color: #e3e3e3;
+    background-image: linear-gradient(white,#e3e3e3);
+}

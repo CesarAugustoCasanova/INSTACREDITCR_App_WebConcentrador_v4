@@ -1,0 +1,63 @@
+﻿/*Hojas de estilo para el grid view*/
+/*.mGrid da el color del tr de registros  */
+.mGrid {
+    width: auto;
+    background-color: #FFFFFF;
+    margin: 5px 0 10px 0;
+    border: solid 1px #525252;
+    border-collapse: collapse;
+    -o-user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -ms-user-select: none;
+    -user-select: none;
+    font-size: large;
+}
+    /*.mGrid td da el color de letra del tr de registros  */ 
+
+    .mGrid td {
+        padding: 2px;
+        border: solid 1px #c1c1c1;
+        color: #000000;
+    }
+    /* HEADER*/
+    .mGrid th {
+    padding: 4px 2px;
+    color: #fff;
+    background: #018A5E;
+    border-left: solid 1px #525252;
+    font-size: 0.9em;
+}
+
+    /*Color de registros alternados*/
+    .mGrid .alt {
+    background: #FFFFFF;
+}
+
+    .mGrid .pgr {
+        background-color: #FFFFFF;
+    }
+
+        .mGrid .pgr table {
+            margin: 5px 0;
+        }
+
+        .mGrid .pgr td {
+            border-width: 0;
+            padding: 0 6px;
+            border-left: solid 1px #666;
+            font-weight: bold;
+            color: #008000;
+            line-height: 12px;
+        }
+
+        .mGrid .pgr a {
+            color: #000000;
+            text-decoration: none;
+        }
+
+            .mGrid .pgr a:hover {
+                color: #000;
+                text-decoration: none;
+            }

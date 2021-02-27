@@ -1,0 +1,244 @@
+﻿body {
+    border-style: groove;
+    border-width: thin;
+    background: #b6b7bc;
+    font-size: .80em;
+    font-family: "Helvetica Neue", "Lucida Grande", "Segoe UI", Arial, Helvetica, Verdana, sans-serif;
+    margin: 0px;
+    padding: 0px;
+    color: #CCCCCC;
+}
+
+.Pagina {
+    width: 98%;
+    background-color: #fff;
+    margin: 20px auto 0px auto;
+    border: 1px solid #496077;
+    /*-o-user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -ms-user-select: none;
+    -user-select: none;*/
+}
+
+.Espacio {
+    border-style: groove;
+    border-width: thin;
+    background-color: #FFFFFF;
+}
+
+.Table {
+    width: 100%;
+    background-color: white;
+}
+
+.Izquierda {
+    text-align: left;
+}
+
+.Derecha {
+    text-align: right;
+}
+
+.Centro {
+    text-align: center;
+}
+
+.Arriba {
+    vertical-align: top;
+}
+
+.Abajo {
+    vertical-align: bottom;
+}
+
+.TituloP {
+    /*font-weight: 700;
+    margin: 0px;
+    padding: 0px 0px 0px 20px;
+    color: #000000;
+    border: none;
+    line-height: 2em;
+    font-size: 2em;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;*/
+    font-weight: 700;
+    color: #000000;
+    line-height: 2em;
+    font-size: 2em;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    width: 36%;
+    border-style: none;
+    border-color: inherit;
+    border-width: medium;
+    margin: 0px;
+    padding-left: 20px;
+    padding-right: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    text-align: center;
+}
+
+.Titulos {
+    text-align: center;
+    background-color: #000066;
+    font-family: Tahoma;
+    font-size: small;
+    font-weight: bold;
+    color: #FFFFFF;
+}
+
+.SearchDiv {
+    display: inline-block;
+    zoom: 1;
+    display: inline;
+    border: solid 1px #d2d2d2;
+    padding: 3px 5px;
+    -webkit-border-radius: 2em;
+    -moz-border-radius: 2em;
+    border-radius: 2em;
+    -webkit-box-shadow: 0 1px 0px rgba(0,0,0,.1);
+    -moz-box-shadow: 0 1px 0px rgba(0,0,0,.1);
+    box-shadow: 0 1px 0px rgba(0,0,0,.1);
+    background: #f1f1f1;
+    background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ededed));
+    background: -moz-linear-gradient(top, #fff, #ededed);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ededed'); /* ie7 */
+    -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ededed'); /* ie8 */
+}
+
+.ScroolBusquedas {
+    max-height: 500px;
+    max-width: 600px;
+    overflow: scroll;
+    height: auto;
+}
+
+.ScroolAddTelefonos {
+    max-height: 400px;
+    max-width: 900px;
+    overflow: scroll;
+    height: auto;
+}
+
+.ScroolAddDirecciones {
+    max-height: 400px;
+    max-width: 900px;
+    overflow: scroll;
+    height: auto;
+}
+
+.ScroolAddCorreo {
+    max-height: 400px;
+    max-width: 900px;
+    overflow: scroll;
+    height: auto;
+}
+
+.ScroolAddPagos {
+    max-height: 400px;
+    max-width: 900px;
+    overflow: scroll;
+    height: auto;
+}
+
+.ScroolCalTelefonica {
+    text-align: left;
+    margin-left: 30px;
+    float: left;
+    height: 150px;
+    width: 451px;
+    overflow-y: scroll;
+}
+
+.force-overflow {
+    min-height: 250px;
+}
+
+.ScroolCalendarioPagos {
+    text-align: left;
+    margin-left: 30px;
+    float: left;
+    max-height: 300px;
+    overflow-y: scroll;
+    text-align:left;
+}
+/*Scroll de color azul*/
+/*Div::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #F5F5F5;
+    border-radius: 10px;
+}
+
+Div::-webkit-scrollbar {
+    width: 10px;
+    background-color: #F5F5F5;
+}
+
+Div::-webkit-scrollbar-thumb {
+    background-color: #3366FF;
+    border-radius: 10px;
+    background-image: -webkit-linear-gradient(0deg, rgba(255, 255, 255, 0.5) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0.5) 75%, transparent 75%, transparent);
+}*/
+
+Div::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #F5F5F5;
+    border-radius: 10px;
+}
+
+Div::-webkit-scrollbar {
+    width: 10px;
+    background-color: #F5F5F5;
+}
+
+Div::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.44, rgb(122,153,217)), color-stop(0.72, rgb(73,125,189)), color-stop(0.86, rgb(28,58,148)));
+}
+
+.ScroolHistAsig {
+    max-height: 500px;
+    overflow: scroll;
+    width: 1200px;
+}
+
+.ScroolHistVisitas {
+    max-height: 500px;
+    overflow: scroll;
+    width: 1200px;
+}
+
+.ScroolHist_ActCap {
+    height: auto;
+    max-height: 500px;
+    overflow: scroll;
+    width: 1200px;
+}
+.ScroolHist_Iteraciones {
+    height: auto;
+    max-height: 300px;
+    overflow: scroll;
+    width: 300px;
+}
+.ScroolHist_ActOtro {
+    height: auto;
+    max-height: 250px;
+    overflow: scroll;
+    width: 1200px;
+}
+
+.Retirada {
+    background-color: #FF0000;
+    text-align: center;
+    width: 100%;
+    color: white;
+}
+
+.ScroolSeleccionCamposReportes {
+    height: auto;
+    max-height: 300px;
+    overflow: scroll;
+    width: 500px;
+}
+

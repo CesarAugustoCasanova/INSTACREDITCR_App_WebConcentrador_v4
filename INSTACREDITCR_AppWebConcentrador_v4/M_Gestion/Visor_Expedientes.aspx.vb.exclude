@@ -1,0 +1,59 @@
+﻿
+Imports Telerik.Web.UI
+
+Partial Class M_Gestion_Visor_Expedientes
+    Inherits System.Web.UI.Page
+    Public Property tmpUSUARIO As IDictionary
+        Get
+            Return CType(Session("USUARIO"), IDictionary)
+        End Get
+        Set(value As IDictionary)
+            Session("USUARIO") = value
+        End Set
+    End Property
+
+    Public Property tmpCredito As IDictionary
+        Get
+            Return CType(Session("Credito"), IDictionary)
+        End Get
+        Set(value As IDictionary)
+            Session("Credito") = value
+        End Set
+    End Property
+
+    Private Sub M_Gestion_Visor_Expedientes_Load(sender As Object, e As EventArgs) Handles Me.Load
+        If Not IsPostBack Then
+            Dim meses() As String = {"Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"}
+
+            'Se cargan los años desde el 2018 y se selecciona el año actual
+            For anio = 2018 To Now.Year
+                rcbAnio.Items.Add(New RadComboBoxItem(anio, anio) With {.Selected = IIf(anio = Now.Year, True, False)})
+            Next
+            rcbAnio.DataBind()
+
+            'Se cargan los meses y se selecciona el mes actual
+            For Each mes In meses
+                rcbMes.Items.Add(New RadComboBoxItem(mes, mes) With {.Selected = IIf(mes = meses(Now.Month - 1), True, False)})
+            Next
+            rcbMes.DataBind()
+
+            'cargarRutaFTP()
+        End If
+    End Sub
+
+
+    'Private Sub cargarRutaFTP()
+    '    modulo_ftp.Visible = True
+
+    '    modulo_ftp.DirectorioFTP = "ftp://cspmexftp01/" & rcbAnio.SelectedValue & "/" & rcbMes.SelectedValue & "/" & tmpCredito("PR_MC_CREDITO").ToString.Replace(" ", "")
+    '    modulo_ftp.UsuarioFTP = "ftpmc"
+    '    modulo_ftp.ContrasenaFTP = "C0nsup4g001"
+    '    modulo_ftp.ExtensionesPermitidas = "doc,docx,csv,xls,xlsx,pps,ppsx,ppt,pptx,bmp,gif,jpg,jpge,tif,png,pdf,msg"
+    '    modulo_ftp.ShowftpDirectory = False
+    '    modulo_ftp.DataBind()
+    'End Sub
+
+    Private Sub btnGenerar_Click(sender As Object, e As EventArgs) Handles btnGenerar.Click
+        'cargarRutaFTP()
+    End Sub
+End Class

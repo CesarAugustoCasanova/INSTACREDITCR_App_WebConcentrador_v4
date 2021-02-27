@@ -1,0 +1,143 @@
+﻿/*ESTILOS PARA LA MODAL*/
+.CajaDialogo {
+    background-color: white;
+    border-width: 3px;
+    border-style: inset;
+    border-color: black;
+    padding: 0px;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.ModalBackground {
+    background-color: Gray;
+    filter: alpha(opacity=70);
+    opacity: 0.7;
+    -moz-opacity: .7;
+}
+
+.AjaxToolkitStyle .ajax__combobox_inputcontainer .ajax__combobox_textboxcontainer input {
+    background-image: url(../Imagenes/toolkit-bg.gif);
+    background-position: top left;
+    border: 0px none;
+    color: #FFFFFF;
+    padding: 4px 0px 3px 5px;
+    font-size: 13px;
+    height: 16px;
+    width: 140px;
+}
+
+.AjaxToolkitStyle .ajax__combobox_inputcontainer .ajax__combobox_buttoncontainer button {
+    background-image: url(../Imagenes/toolkit-arrow.gif);
+    background-position: top right;
+    border: 0px none;
+    height: 23px;
+    width: 23px;
+}
+
+.AjaxToolkitStyle .ajax__combobox_inputcontainer .ajax__combobox_buttoncontainer button {
+    background-image: url(../Imagenes/toolkit-arrow.gif);
+    background-position: top right;
+    border: 0px none;
+    height: 23px;
+    width: 23px;
+}
+
+.AjaxToolkitStyle .ajax__combobox_itemlist {
+    border-color: #0F2543;
+    background-color: #EFEFEF;
+}
+
+.AquaStyle .ajax__combobox_inputcontainer .ajax__combobox_textboxcontainer input {
+    margin: 0;
+    background-image: url(../Imagenes/aqua-bg.gif);
+    background-position: top left;
+    border: 0px none;
+    padding: 2px 0px 0px 4px;
+    font-size: 11px;
+    height: 17.5px;
+    width: 150px;
+}
+
+.AquaStyle .ajax__combobox_inputcontainer .ajax__combobox_buttoncontainer button {
+    background-image: url(../Imagenes/aqua-arrow.gif);
+    background-position: bottom left;
+    border: 0px none;
+    height: 0px;
+    width: 0px;
+}
+
+.AquaStyle .ajax__combobox_itemlist {
+    border-color: #000000;
+    background-color: #FFFFFF;
+}
+
+.WindowsStyle .ajax__combobox_inputcontainer .ajax__combobox_textboxcontainer input {
+    margin: 0;
+    border: solid 1px #7F9DB9;
+    border-right: 0px none;
+    padding: 1px 0px 0px 5px;
+    font-size: 13px;
+    height: 18px;
+}
+
+.WindowsStyle .ajax__combobox_inputcontainer .ajax__combobox_buttoncontainer button {
+    margin: 0;
+    padding: 0;
+    background-image: url(../Imagenes/windows-arrow.gif);
+    background-position: top left;
+    border: 0px none;
+    height: 21px;
+    width: 21px;
+}
+
+.WindowsStyle .ajax__combobox_itemlist {
+    border-color: #7F9DB9;
+}
+
+.Calendario .ajax__calendar_container{
+background-color: #e2e2e2; border:solid 1px #cccccc;
+}
+
+.Calendario .ajax__calendar_header{
+background-color: #4b6c9e; margin-bottom: 4px;
+}
+
+.Calendario .ajax__calendar_title,
+.Calendario .ajax__calendar_next,
+.Calendario .ajax__calendar_prev{
+color: #FFFFFF; padding-top: 3px;
+}
+
+.Calendario .ajax__calendar_body {
+    background-color: #e9e9e9;
+    border: solid 1px #cccccc;
+    color: #000000;
+}
+
+.Calendario .   yname{
+text-align:center; font-weight:bold; margin-bottom: 4px; margin-top: 2px;
+}
+
+.Calendario .ajax__calendar_day{
+text-align:center;
+}
+
+.Calendario .ajax__calendar_hover .ajax__calendar_day,
+.Calendario .ajax__calendar_hover .ajax__calendar_month,
+.Calendario .ajax__calendar_hover .ajax__calendar_year,
+.Calendario .ajax__calendar_active{
+color: #004080; font-weight:bold; background-color: #03205C;
+}
+
+.Calendario .ajax__calendar_today {
+    font-weight: bold;
+    color: #000000;
+}
+
+.Calendario .ajax__calendar_other,
+.Calendario .ajax__calendar_hover .ajax__calendar_today,
+.Calendario .ajax__calendar_hover .ajax__calendar_title{
+color: #bbbbbb;
+}
+

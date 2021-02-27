@@ -1,0 +1,116 @@
+﻿
+.ModalMsj {
+    width: 360px;
+    height: 189px;
+    padding: 8px;
+    background: rgba(0,0,0,.3);
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+}
+.ModalAcciones {
+    width:auto;
+    height: auto;
+    padding: 8px;
+    background: rgba(0,0,0,.3);
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+}
+.heading {
+    border-bottom: 1px solid #bababa;
+    -webkit-box-shadow: inset 0px -1px 0px #fff, 0px 1px 3px rgba(0, 0, 0, .08);
+    -moz-box-shadow: inset 0px -1px 0px #fff, 0px 1px 3px rgba(0, 0, 0, .08);
+    box-shadow: inset 0px -1px 0px #fff, 0px 1px 3px rgba(0, 0, 0, .08);
+    -webkit-border-radius: 4px 4px 0px 0px;
+    -moz-border-radius: 4px 4px 0px 0px;
+    border-radius: 4px 4px 0px 0px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 44px;
+    color: #444444;
+    text-shadow: 0px 1px 0px #fff;
+    background-image: linear-gradient(top, rgb(249, 249, 249), rgb(233, 233, 233));
+    background-color: #CCCCCC;
+}
+
+.CuerpoMsj {
+    width: 360px;
+    height: 144px;
+    background: #fcfcfc;
+    -webkit-box-shadow: 0px 1px 3px rgba(0,0,0,.25);
+    -moz-box-shadow: 0px 1px 3px rgba(0,0,0,.25);
+    box-shadow: 0px 1px 3px rgba(0,0,0,.25);
+    -webkit-border-radius: 0px 0px 4px 4px;
+    -moz-border-radius: 0px 0px 4px 4px;
+    border-radius: 0px 0px 4px 4px;
+}
+.CuerpoAcciones {
+    width: auto;
+    height: auto;
+    background: #fcfcfc;
+    -webkit-box-shadow: 0px 1px 3px rgba(0,0,0,.25);
+    -moz-box-shadow: 0px 1px 3px rgba(0,0,0,.25);
+    box-shadow: 0px 1px 3px rgba(0,0,0,.25);
+    -webkit-border-radius: 0px 0px 4px 4px;
+    -moz-border-radius: 0px 0px 4px 4px;
+    border-radius: 0px 0px 4px 4px;
+}
+.button {
+    width: 138px;
+    height: 33px;
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 33px;
+    color: #fff;
+    text-shadow: 0px 1px 0px rgba(0,0,0,.2);
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: inset 0px 1px 0px rgba(255,255,255,.5), 0px 1px 2px rgba(0,0,0,.3);
+    -moz-box-shadow: inset 0px 1px 0px rgba(255,255,255,.5), 0px 1px 2px rgba(0,0,0,.3);
+    box-shadow: inset 0px 1px 0px rgba(255,255,255,.5), 0px 1px 2px rgba(0,0,0,.3);
+    /*float: left;*/
+}
+    .button.green {
+        background: -webkit-linear-gradient(top, rgba(170,212,79,1) 0%,rgba(116,185,49,1) 90%,rgba(106,173,45,1) 95%,rgba(96,157,41,1) 100%);
+        background: -moz-linear-gradient(top, rgba(170,212,79,1) 0%,rgba(116,185,49,1) 90%,rgba(106,173,45,1) 95%,rgba(96,157,41,1) 100%);
+        background: -o-linear-gradient(top, rgba(170,212,79,1) 0%,rgba(116,185,49,1) 90%,rgba(106,173,45,1) 95%,rgba(96,157,41,1) 100%);
+        background: -ms-linear-gradient(top, rgba(170,212,79,1) 0%,rgba(116,185,49,1) 90%,rgba(106,173,45,1) 95%,rgba(96,157,41,1) 100%);
+        background: linear-gradient(top, rgba(170,212,79,1) 0%,rgba(116,185,49,1) 90%,rgba(106,173,45,1) 95%,rgba(96,157,41,1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#aad44f', endColorstr='#609d29',GradientType=0 );
+        border: 1px solid #5b8821;
+        /*margin: 0 5px 0 35px;
+        padding-left: 20px;
+        background-repeat: no-repeat;
+        background-image: url(../imagenes/ImgOk.png);*/
+    }
+
+    .button.red {
+        background: -webkit-linear-gradient(top, rgba(248,114,136,1) 0%,rgba(243,71,85,1) 90%,rgba(225,65,77,1) 95%,rgba(206,59,70,1) 100%);
+        background: -moz-linear-gradient(top, rgba(248,114,136,1) 0%,rgba(243,71,85,1) 90%,rgba(225,65,77,1) 95%,rgba(206,59,70,1) 100%);
+        background: -o-linear-gradient(top, rgba(248,114,136,1) 0%,rgba(243,71,85,1) 90%,rgba(225,65,77,1) 95%,rgba(206,59,70,1) 100%);
+        background: -ms-linear-gradient(top, rgba(248,114,136,1) 0%,rgba(243,71,85,1) 90%,rgba(225,65,77,1) 95%,rgba(206,59,70,1) 100%);
+        background: linear-gradient(top, rgba(248,114,136,1) 0%,rgba(243,71,85,1) 90%,rgba(225,65,77,1) 95%,rgba(206,59,70,1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f87288', endColorstr='#ce3b46',GradientType=0 );
+        border: 1px solid #b0333e;
+       /*margin: 0 35px 0 5px;*/
+    }
+
+.modalBackground {
+    background-color: Black;
+    filter: alpha(opacity=60);
+    opacity: 0.6;
+}
+
+.Button {
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    border-radius: 5px;
+    text-align: left;
+    padding-left: 20px;
+    background-repeat: no-repeat;
+    background-image: url(../imagenes/ImgOk.png);
+}

@@ -1,0 +1,114 @@
+﻿Imports System.Data
+Imports System.Data.SqlClient
+Imports Db
+Imports Telerik.Web.UI
+Partial Class M_Administrador_ModuloMail
+    Inherits System.Web.UI.UserControl
+
+
+    Dim myNewArrList As ArrayList
+    Protected Sub Mensaje(ByVal v_mensaje As String)
+        RadWindowManager1.RadAlert(v_mensaje, 400, 150, Nothing, Nothing)
+    End Sub
+    Protected Sub aviso(ByVal MSJ As String)
+        RadAviso.RadAlert(MSJ.Replace(Chr(10), "").Replace(Chr(13), "").Replace("'", "").Replace("""", ""), 400, 150, "Aviso", Nothing)
+    End Sub
+    Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
+
+
+        Dim oraCommanVarios As New SqlCommand("SP_EMAILS")
+
+        oraCommanVarios.CommandType = CommandType.StoredProcedure
+        oraCommanVarios.Parameters.Add("@V_BANDERA", SqlDbType.Decimal).Value = 5
+        oraCommanVarios.Parameters.Add("@MAIL_NCUENTA", SqlDbType.NVarChar).Value = txtUsuario.Text
+        oraCommanVarios.Parameters.Add("@MAIL_DESCRIPCION", SqlDbType.NVarChar).Value = txtdescripcion.Text
+        oraCommanVarios.Parameters.Add("@MAIL_CORREO", SqlDbType.NVarChar).Value = txtCorreo.Text
+        oraCommanVarios.Parameters.Add("@MAIL_NOMBRE", SqlDbType.NVarChar).Value = txtNombre.Text
+        oraCommanVarios.Parameters.Add("@MAIL_PASS", SqlDbType.NVarChar).Value = txtContrasena.Text
+        oraCommanVarios.Parameters.Add("@MAIL_NSERVER", SqlDbType.NVarChar).Value = txtnserver.Text
+        oraCommanVarios.Parameters.Add("@MAIL_PORT", SqlDbType.NVarChar).Value = txtport.Text
+
+        Try
+            Dim DtsVarios As DataTable = Consulta_Procedure(oraCommanVarios, "MAILS")
+            If DtsVarios.TableName = "Exception" Then
+                aviso(DtsVarios(0)(0))
+            End If
+
+
+
+
+        Catch ex As Exception
+            Dim V_ERRRO As String = ex.Message
+        End Try
+        
+    End Sub
+    ' When you get to your next page you just create a new ArrayList object and set it like this.
+
+
+    Private Sub M_Administrador_PruebaModuloMails_Load(sender As Object, e As EventArgs) Handles Me.Load
+
+
+
+
+        'Then to pull out your values you just do this.
+
+        'Dim Datos As String = Session("MyArrayList")
+        'Dim d As String = Datos(1)
+        'txtid.Text = Datos(0)
+        'txtNombre.Text = Datos(1)
+        'txtdescripcion.Text = Datos(2)
+        'txtUsuario.Text = Datos(3)
+        'txtCorreo.Text = Datos(5)
+        'txtnserver.Text = Datos(6)
+        'txtport.Text = Datos(7)
+
+
+
+
+
+        'Context.Session("Id") = txtid.Text
+        'Context.Session("Usuario") = txtUsuario.Text
+        'Context.Session("Descripcion") = txtdescripcion.Text
+        'Context.Session("Cuenta") = txtCorreo.Text
+        'Context.Session("Nombre") = txtNombre.Text
+        'Context.Session("SMTP") = txtnserver.Text
+        'Context.Session("Puerto") = txtport.Text
+
+
+
+        'Dim oraCommanVarios As New SqlCommand("SP_EMAILS")
+
+        'oraCommanVarios.CommandType = CommandType.StoredProcedure
+        'oraCommanVarios.Parameters.Add("@V_BANDERA", SqlDbType.Decimal).Value = 5
+        'oraCommanVarios.Parameters.Add("@MAIL_ID", SqlDbType.NVarChar).Value = Session("Id")
+        'oraCommanVarios.Parameters.Add("@MAIL_NCUENTA", SqlDbType.NVarChar).Value = Session(1) = txtUsuario.Text
+        'oraCommanVarios.Parameters.Add("@MAIL_DESCRIPCION", SqlDbType.NVarChar).Value = Session("DATOS") = txtdescripcion.Text
+        'oraCommanVarios.Parameters.Add("@MAIL_CORREO", SqlDbType.NVarChar).Value = Session(3) = txtCorreo.Text
+        'oraCommanVarios.Parameters.Add("@MAIL_NOMBRE", SqlDbType.NVarChar).Value = Session(4) = txtNombre.Text
+        'oraCommanVarios.Parameters.Add("@MAIL_PASS", SqlDbType.NVarChar).Value = txtContrasena.Text
+        'oraCommanVarios.Parameters.Add("@MAIL_NSERVER", SqlDbType.NVarChar).Value = Session(5) = txtnserver.Text
+        'oraCommanVarios.Parameters.Add("@MAIL_PORT", SqlDbType.NVarChar).Value = Session(6) = txtport.Text
+
+        'Try
+        '    Dim DtsVarios As DataTable = Consulta_Procedure(oraCommanVarios, "MAILS")
+
+
+
+
+
+        'Catch ex As Exception
+        '    Dim V_ERRRO As String = ex.Message
+        'End Try
+
+
+    End Sub
+End Class
+
+
+
+'id perfil
+'nombre
+'descrip
+'ultima modificacion perfil y cuenta 
+'correo
+'id de la cuenta

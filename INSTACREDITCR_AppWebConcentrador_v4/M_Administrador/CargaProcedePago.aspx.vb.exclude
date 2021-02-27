@@ -1,0 +1,97 @@
+﻿Imports System.Data.SqlClient
+Imports System.Data
+Imports System.Diagnostics
+Imports System.IO
+Imports Db
+Imports Funciones
+Imports System.Net.Mail
+Imports Telerik.Web.UI
+Imports System.Threading.Tasks
+Imports System.Threading
+Partial Class M_Administrador_CargaProcedePago
+    Inherits System.Web.UI.Page
+    Dim Ruta As String = Db.StrRuta() & "\Pagos\Procedencia"
+    Shared nombre As String
+    Private Sub BtnCargar_Click(sender As Object, e As EventArgs) Handles BtnCargar.Click
+        Dim tabla As DataTable = FileToDataTable(Ruta & nombre)
+        Dim fakebulk As New SqlBulkCopy(Conectando())
+        fakebulk.DestinationTableName = "dbo.HIST_PAGOS_PROCE"
+        Try
+            fakebulk.WriteToServer(tabla)
+        Catch ex As Exception
+            Dim s As String = ex.Message
+            LBLResultado.Text = "Error " & s
+        End Try
+        SP.CARGA_PROCEDEPAGOS(1, Nothing, Nothing)
+        LBLResultado.Text = "Cargadas " & tabla.Rows.Count & " Gestiones"
+    End Sub
+
+    Private Function FileToDataTable(path As String) As DataTable
+        Dim lines = IO.File.ReadAllLines(path)
+        Dim tbl = New DataTable, nameCols As DataTable
+
+        nameCols = SP.CARGA_PROCEDEPAGOS(0, Nothing, Nothing)
+
+
+        Dim encabezado = True
+        Dim separador As Char
+
+        Select Case DDLSeparador.SelectedValue
+            Case 0
+                separador = Chr(9) 'Tabulador
+            Case 1
+                separador = Chr(44) 'Coma
+        End Select
+
+
+        Dim numLinea = 1, numCols = nameCols.Rows.Count
+        For Each line In lines
+            If encabezado Then
+                Dim campos As String() = line.Split(separador)
+                If campos.Length > numCols Then
+                    LblMensaje.Text = "El encabezado es incorrecto. Tiene campos extra"
+                ElseIf campos.Length < numCols Then
+                    LblMensaje.Text = "El encabezado es incorecto. Le faltan campos"
+                End If
+                For Each name As DataRow In nameCols.Rows
+                    tbl.Columns.Add(New DataColumn(name(0).ToString, GetType(String)))
+                Next
+                encabezado = False
+            Else
+                Dim objFields = From field In line.Split(separador)
+                                Select field
+                numLinea += 1
+                Dim objetos = objFields.ToArray()
+                If objetos.Length > numCols Then
+                    Throw New Exception("La linea #" & numLinea & " tiene campos extra. Valide.")
+                ElseIf objetos.Length < numCols Then
+                    Throw New Exception("La linea #" & numLinea & " tiene campos faltantes. Valide.")
+                End If
+                Dim newRow = tbl.Rows.Add()
+                newRow.ItemArray = objetos
+            End If
+        Next
+        Return tbl
+    End Function
+    Private Sub RadAsyncUpload1_FileUploaded(sender As Object, e As FileUploadedEventArgs) Handles RadAsyncUpload1.FileUploaded
+        Try
+            SubExisteRuta(Ruta)
+            For Each s In System.IO.Directory.GetFiles(Ruta)
+                System.IO.File.Delete(s)
+            Next
+            Dim nom As String = e.File.FileName
+            nombre = nom
+            Dim ruta_archivo As String = Ruta + nom
+            e.File.SaveAs(ruta_archivo)
+        Catch ex As Exception
+        End Try
+    End Sub
+
+    Private Sub M_Administrador_CargaMasivaGestiones_Load(sender As Object, e As EventArgs) Handles Me.Load
+        If Not IsPostBack Then
+            nombre = ""
+            LblMensaje.Text = ""
+            LBLResultado.Text = ""
+        End If
+    End Sub
+End Class

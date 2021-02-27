@@ -1,0 +1,59 @@
+﻿<%@ Page Language="VB" AutoEventWireup="false" CodeFile="Visor_Expedientes.aspx.vb" Inherits="M_Gestion_Visor_Expedientes" %>
+<%@ Register Src="~/Modulos/FTP/FTPManager.ascx" TagName="FTP" TagPrefix="MC" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <script src="JS/iFrameMejorado.js?v=2" type="text/javascript"></script>
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="stylesheet"  type="text/css" href="../Estilos/bootstrap.min.css" />
+</head>
+<body>
+
+    <form id="form1" runat="server">
+        <noscript>
+            <div class="w3-modal" style="display: block">
+                <div class="w3-modal-content">
+                    <div class="w3-container w3-red w3-center w3-padding-24 w3-jumbo">
+                        JavaScript deshabilitado
+                    </div>
+                    <div class="w3-container w3-center w3-xlarge">
+                        Javascript está deshabilitado en su navegador web. Por favor, para ver correctamente este sitio, <b><i>habilite javascript</i></b>.<br />
+                        <br />
+                        Para ver las instrucciones para habilitar javascript en su navegador, haga click <a href="http://www.enable-javascript.com/es/">aquí</a>.
+                    </div>
+                </div>
+            </div>
+        </noscript>
+        <telerik:RadScriptManager runat="server"></telerik:RadScriptManager>
+        <telerik:RadSkinManager runat="server"></telerik:RadSkinManager>
+    <div class="text-center">
+        <h1>Expedientes</h1>
+        <div class="text-muted">
+            A continuación, puede configurar los siguientes filtros para visualizar los documentos del crédito.
+        </div>
+        <hr />
+    </div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <label>Año</label>
+                <telerik:RadComboBox runat="server" ID="rcbAnio" DropDownAutoWidth="Enabled" Width="100%"></telerik:RadComboBox>
+            </div>
+            <div class="col-md-4">
+                <label>Mes</label>
+                <telerik:RadComboBox runat="server" ID="rcbMes" DropDownAutoWidth="Enabled" Width="100%"></telerik:RadComboBox>
+            </div>
+            <div class="col-12">
+            </div>
+            <div class="col-md-2 my-2">
+                <telerik:RadButton runat="server" ID="btnGenerar" Text="Actualizar Fecha" SingleClick="true" SingleClickText="Conectando..."></telerik:RadButton>
+            </div>
+        </div>
+    </div>
+    <MC:FTP runat="server" ID="modulo_ftp" Visible="false"></MC:FTP>
+    </form>
+</body>
+</html>

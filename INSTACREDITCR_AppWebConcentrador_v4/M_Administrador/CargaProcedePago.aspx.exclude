@@ -1,0 +1,67 @@
+﻿<%@ Page Language="VB" AutoEventWireup="false" CodeFile="CargaProcedePago.aspx.vb" MasterPageFile="~/M_Administrador/MasterPage.master" Inherits="M_Administrador_CargaProcedePago" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="CPHMaster" runat="Server">
+    <telerik:RadAjaxPanel ID="UPNLGeneral" runat="server">
+        <div class="Titulos">Carga Masiva Gestiones</div>
+        <div class="container">
+
+            <div class="w-100">
+                Layout para carga de cartera. El archivo debe ser CSV o TXT con encabezados.
+            </div>
+            <div class="table-responsive">
+                <table class="table" runat="server" id="LOGestion" >
+                    <tr>
+                        <th>Campo</th>
+                        <td>Número De Crédito:</td>
+                        <td>Monto:</td>
+                        <td>Fecha:</td>
+                        <td>Procedencia:</td>
+
+                    </tr>
+                    <tr>
+                        <th>Descripcion</th>
+                        <td>Hasta 25 Caracteres</td>
+                        <td>Numero Decimal</td>
+                        <td>DD/MM/AAAA</td>
+                        <td>Hasta 50 Caracteres</td>
+
+                    </tr>
+                </table>
+
+            </div>
+        </div>
+        <div class="d-flex justify-content-center mt-2">
+            <telerik:RadLabel runat="server" ID="LBLResultado" CssClass="w3-large"></telerik:RadLabel>
+        </div>
+        <div class="d-flex justify-content-center mt-2">
+                <asp:Label ID="LblMensaje" runat="server"></asp:Label>
+            </div>
+
+         <div class="d-flex justify-content-center">
+       
+                <label>Separador:</label><br />
+                <telerik:RadDropDownList runat="server" ID="DDLSeparador" DefaultMessage="Seleccione" AutoPostBack="false">
+                    <Items>
+                        <telerik:DropDownListItem Text="Tabulador" Value="0" Selected="true" />
+                        <telerik:DropDownListItem Text="Coma" Value="1" />
+                    </Items>
+                </telerik:RadDropDownList>
+                <label>Archivo:</label><br />
+                <telerik:RadAsyncUpload ID="RadAsyncUpload1" runat="server" AllowedFileExtensions=".CSV,.txt" MultipleFileSelection="Disabled" OnClientFileUploading="focusDown">
+                </telerik:RadAsyncUpload>
+
+                <telerik:RadButton ID="BtnCargar" runat="server" Text="Cargar" SingleClick="true" SingleClickText="Procesando..." OnClientClicking="focusDown" />
+            </div>
+    </telerik:RadAjaxPanel>
+    <div id="down"></div>
+    <script>
+        focusDown = () => {
+            $([document.documentElement, document.body]).animate({
+                scrollTop: $("#down").offset().top
+            }, 1000);
+        }
+
+    </script>
+</asp:Content>

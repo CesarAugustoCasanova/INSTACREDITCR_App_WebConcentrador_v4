@@ -1,0 +1,167 @@
+﻿<%@ Master Language="VB" CodeFile="MasterPage.master.vb" Inherits="MasterPage" %>
+
+<%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title id="Title" runat="server">Master Collection</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="Estilos/HTML.css" rel="stylesheet" />
+    <link href="../Estilos/w3.css" rel="stylesheet" />
+    <link href="../Estilos/bootstrap.min.css" rel="stylesheet" />
+    <link href="Imagenes/IcoLogo_Mc.ico" rel="Shortcut icon" />
+    <script src="../Scripts/jQuery.min.js"></script>
+    <script src="../Scripts/popper.min.js?v=1"></script>
+    <script src="../Scripts/bootstrap.min.js"></script>
+    <script src="../Scripts/sessionTimeout.js"></script>
+    <link href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700|Google+Sans:300,400,500,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <style>
+        .menu-item {
+            max-height: 200px;
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="modal" id="ModalSession" style="z-index: 10000">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Sesión inactiva</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <p>Su Sesión Caducara en <span class="count">0</span> segundos</p>
+                    (Mueve el cursor para mantenerte activo)
+                </div>
+            </div>
+        </div>
+    </div>
+    <form id="form1" runat="server" enctype="multipart/form-data" method="post" autocomplete="off">
+        <telerik:RadSkinManager runat="server" Skin="Bootstrap"></telerik:RadSkinManager>
+        <telerik:RadScriptBlock runat="server">
+            <script>
+                window.sesionTimeout = <%= Session.Timeout * 60 %>;
+            </script>
+        </telerik:RadScriptBlock>
+        <telerik:RadScriptManager ID="RadScriptManager1" runat="server" AsyncPostBackTimeout="3600"></telerik:RadScriptManager>
+        <nav runat="server" class="navbar navbar-expand-lg navbar-light navbar-dark bg-dark shadow-sm sticky-top" id="Menu">
+            <div class="navbar-brand w3-large"><b>ADMINISTRADOR</b></div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item bottom-border">
+                        <a class="nav-link" href="./Inicio.aspx"><i class="material-icons" style="font-size: 1em">&#xe88a;</i> Inicio</a>
+                    </li>
+                    <li class="nav-item dropdown bottom-border" id="Catalogos" runat="server">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="material-icons" style="font-size: 1em">&#xe02f;</i> Catalogos
+                        </a>
+                        <div class="dropdown-menu menu-item" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" runat="server" id="Perfiles" href="./CatalogoPermisos.aspx">Perfiles/Permisos</a>
+                            <a class="dropdown-item" runat="server" id="Politicas" href="./CatalogoPoliticas.aspx">Políticas De Acceso</a>
+                            <a class="dropdown-item" runat="server" id="Agencias" href="./CatalogoAgencias.aspx">Agencias</a>
+                            <a class="dropdown-item" runat="server" id="Usuarios" href="./Usuarios.aspx">Usuarios</a>
+                            <a class="dropdown-item" runat="server" id="Conectados" href="./AdminSesion.aspx">Usuarios Conectados</a>
+                            <a class="dropdown-item" runat="server" id="Codigos" href="./Codigos.aspx">Códigos</a>
+                           
+                            <a class="dropdown-item" runat="server" id="Judiciales" href="./CatalogosJudiciales.aspx">Judiciales</a>
+                            <a class="dropdown-item" runat="server" id="ImgLogin" href="./CatImgLogin.aspx">Imagenes Login</a>
+                            <a class="dropdown-item" runat="server" id="Sistema" href="./CatalogosSistema.aspx">Sistema</a>
+                            <a class="dropdown-item" runat="server" id="Blocked_apps" href="./CatalogoAplicaciones.aspx">Blocked apps</a>
+                            <a class="dropdown-item" runat="server" id="ConfigCorreo" href="./Mails.aspx">Informacion e-mail</a>
+                            <a class="dropdown-item" runat="server" id="Comisiones" href="./CatalogoComisiones.aspx">Comisiones</a>
+                            <a class="dropdown-item" runat="server" id="Exclusiones" href="./Exclusiones.aspx">Exclusiones</a>
+                            <a class="dropdown-item" runat="server" id="Ponderacion_codigos" href="./PonderacionCodigos.aspx" visible="true">Ponderacion Codigos</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown bottom-border" id="Configuracion" runat="server" >
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="material-icons" style="font-size: 1em">&#xe8b8;</i> Configuracion
+                        </a>
+                        <div class="dropdown-menu menu-item" aria-labelledby="navbarDropdown2">
+                            <a class="dropdown-item" runat="server" id="Dispersion"         href="./CatalogoDispercion.aspx">Dispersion</a>
+                            <a class="dropdown-item" runat="server" id="PrioridadReglas"    href="./PrioridadReglas.aspx">Prioridad Reglas</a>
+                            <a class="dropdown-item" runat="server" id="Platillas_SMS"      href="./SMS.aspx">Plantillas SMS</a>
+                            <a class="dropdown-item" runat="server" id="Plantillas_Correo"  href="./Catalogo_Mail_v2.aspx">Plantillas Correo</a>
+                            <a class="dropdown-item" runat="server" id="Plantillas_Avisos"  href="./CatalogoAvisos.aspx">Plantillas Avisos</a>
+                            <a class="dropdown-item" runat="server" id="Plantillas_Whatsapp" href="./SMS_Whatsapp.aspx" visible="true">Plantillas Whatsapp</a>
+                            <a class="dropdown-item" runat="server" id="Reglas_Globlales"   href="./ReglasGlobales.aspx" >Reglas Globales</a>
+                            <a class="dropdown-item" runat="server" id="Juicios"            href="./creacionjuicios.aspx" >Juicios</a>
+                            <a class="dropdown-item" runat="server" id="Campanas"           href="./CatalogoCampanas.aspx" visible="true">Campañas</a>
+                            
+                            <%--<a class="dropdown-item" runat="server" id="Config_correo"      href="./ConfigurarCorreo.aspx">Información email</a>--%>
+                            <%--<a class="dropdown-item" runat="server" id="Informacion_email"   href="./Mails.aspx">Información email</a>--%> 
+                            <a class="dropdown-item" runat="server" id="Negociaciones"      href="./Negociaciones.aspx">Negociaciones</a> 
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown bottom-border" id="Cargas" runat="server">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="material-icons" style="font-size: 1em">&#xe2c6;</i> Cargas
+                        </a>
+                        <div class="dropdown-menu menu-item" aria-labelledby="navbarDropdown3">
+                            <a class="dropdown-item" runat="server" id="CargaGestiones"      href="./CargaMasivaGestiones.aspx">Gestiones Masivas</a>
+                            <a class="dropdown-item" runat="server" id="CargarAsignacionCon" href="./CargarAsignacionCon.aspx">Cargar Asignacion</a>
+                            <a class="dropdown-item" runat="server" id="CargaCartera"        href="./CargaCartera.aspx">Cargar Cartera</a>
+                            <a class="dropdown-item" runat="server" id="CargaPagos"          href="./CargaPagos.aspx">Cargar Pagos</a>
+                            <a class="dropdown-item" runat="server" id="CargaEtiquetaDom"    href="./CargaEtiquetaDom.aspx">Cargar Etiquetas</a>
+                            <a class="dropdown-item" runat="server" id="CreditosEmpleados"   href="./CreditosEmpleados.aspx">Creditos De Empleados</a>
+                            <a class="dropdown-item" runat="server" id="CargasDiasDebito"    href="CargaDiasDebito.aspx">Cargar Dias Debito</a>
+                            <a class="dropdown-item" runat="server" id="Cargaactualizacion" visible="false"    href="CargaActualizacion.aspx">Cargar Actualizacion</a>
+                            <a class="dropdown-item" runat="server" id="Cargaexclusiones" visible="false"    href="CargaExclusiones.aspx">Cargar Exclusiones</a>
+                        </div>
+                    </li>
+                  <%--  <li class="nav-item bottom-border">
+                        <a class="nav-link" href="./Modulos_Reglas.aspx"><span style="font-size: 1em" class="material-icons">extension
+                        </span> Extensiones</a>
+                    </li>--%>
+                    <li class="nav-item dropdown bottom-border" id="Filas" runat="server" >
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown4" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="material-icons" style="font-size: 1em">&#xe53b;</i> Filas
+                        </a>
+                        <div class="dropdown-menu menu-item" aria-labelledby="navbarDropdown4">
+                            <a class="dropdown-item" runat="server" id="CrearFila" href="./CrearFilas.aspx">Crear Fila</a>
+                            <a class="dropdown-item" runat="server" id="Calendarizacion" href="./ProgramacionMensual.aspx">Calendarización</a>
+                            <a class="dropdown-item" runat="server" id="VerFilas" href="./FilasPool.aspx">Filas</a>
+                        </div>
+                    </li>
+                    <li class="nav-item bottom-border border-warning" id="CerrarModulo" runat="server">
+                        <a class="nav-link" href="../Modulos">Cerrar Modulo</a>
+                    </li>
+                    <li class="nav-item bottom-border border-danger" id="CerrarSesion" runat="server">
+                        <a class="nav-link" href="../SesionExpirada.aspx">Cerrar Sesion</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="p-2 mb-3 mx-2 w3-white shadow" style="overflow: auto;">
+            <asp:ContentPlaceHolder ID="CPHMaster" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    <asp:HiddenField runat="server" ID="HiddUser" />
+    </form>
+    <script src="../Scripts/PestanasMejorado.js?v=1.1" type="text/javascript" async></script>
+
+
+    <style>
+        .sticky {
+            position: fixed;
+            top: 0;
+            width: 100%;
+        }
+    </style>
+
+    
+
+</body>
+</html>

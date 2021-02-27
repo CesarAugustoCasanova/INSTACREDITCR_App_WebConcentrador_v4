@@ -1,0 +1,1 @@
+﻿function openGestion() { $("#divGestion").toggleClass("w3-show"); }
